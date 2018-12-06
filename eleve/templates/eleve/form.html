@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Eleve</title>
+</head>
+<body>
+    <form action="/" method="post">
+        {% csrf_token %}
+    <label for="nom_complet">Nom Complet: <input type="text" name="nom_complet"/> </label>
+    <label for="niveau_etude">Niveau d'etude: <input type="text" name="niveau_etude"/> </label>
+    <label for="date_de_naissance">Date de naissance: <input type="date" name="date_de_naissance"/> </label>
+
+    <input type="submit" value="create">
+    </form>
+    <table>
+        <thead>
+            <th>Nom complet</th>
+            <th>Niveau d'etude</th>
+            <th>Date de Naissance</th>
+        </thead>
+        <tbody>
+            {{% for student in all_student %}}
+            <td>{{student.nom_complet}}</td>
+            <td>{{student.niveau_etude}}</td>
+            <td>{{student.date_de_naissnce}}</td>
+            {{% endfor %}}
+        </tbody>
+    </table>
+</body>
+</html>

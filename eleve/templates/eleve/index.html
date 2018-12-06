@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eleve</title>
+</head>
+<body>
+    <form action="/create" method="post">
+        {% csrf_token %}
+        <label for="nom_complet">Nom Complet: <input type="text" name="nom_complet" id="nom_complet"/> </label>
+        <label for="niveau_etude">Niveau d'etude: <input type="text" name="niveau_etude" id="niveau_etude"/> </label>
+        <label for="serie">Serie: <input type="text" name="serie" id="serie"/> </label>
+
+        <!-- <input type="submit" value="Create"> -->
+        <button type="submit">Ajouter</button>
+    </form>
+    <br><br><br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom complet</th>
+                <th>Niveau d'etude</th>
+                <th>Serie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in all_student %}
+            <tr>
+                <td>{{student.nom_complet}}</td>
+                <td>{{student.niveau_etude}}</td>
+                <td>{{student.serie}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
